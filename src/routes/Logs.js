@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
-import styles from './Logs.css';
+import styles from './common.css';
 import LogsComponents from '../components/Logs/Logs';
 import MainLayout from '../components/MainLayout/MainLayout';
 
