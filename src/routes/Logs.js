@@ -1,17 +1,18 @@
 import React from 'react';
 import { connect } from 'dva';
 import styles from './Logs.css';
+import LogsComponents from '../components/Logs/Logs';
+import MainLayout from '../components/MainLayout/MainLayout';
 
-function Logs() {
+function Logs({ location }) {
   return (
-    <div className={styles.normal}>
-      Route Component: Logs
-    </div>
+    <MainLayout location={location}>
+      <div className={styles.normal}>
+        <LogsComponents />
+      </div>
+    </MainLayout>
   );
 }
 
-function mapStateToProps() {
-  return {};
-}
 
-export default connect(mapStateToProps)(Logs);
+export default connect()(Logs);

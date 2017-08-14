@@ -1,8 +1,6 @@
 import React from 'react';
 import { Router } from 'dva/router';
 
-import Logs from "./routes/Logs.js";
-
 const cached = {};
 function registerModel(app, model) {
   if (!cached[model.namespace]) {
@@ -29,6 +27,16 @@ function RouterConfig({ history, app }) {
         require.ensure([], (require) => {
           registerModel(app, require('./models/users'));
           cb(null, require('./routes/Users'));
+        });
+      },
+    },
+    {
+      path: '/logs',
+      name: 'LogsPage',
+      getComponent(nextState, cb) {
+        require.ensure([], (require) => {
+          registerModel(app, require('./models/logs'));
+          cb(null, require('./routes/Logs'));
         });
       },
     },
