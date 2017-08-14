@@ -1,0 +1,59 @@
+
+.normal {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+}
+
+.main {
+  padding: 0 8px;
+  flex: 1 0 auto;
+}
+
+.logo{
+  width: 120px;
+  height: 31px;
+  border-radius: 6px;
+  margin: 16px 85px 16px 40px;
+  float: left;
+}
+
+.username{
+  width: 180px;
+  height: 31px;
+  border-radius: 6px;
+  margin: 16px 16px 16px 40px;
+  float: right;
+}
+
+.username a{
+  color: #00d8ff;
+  font-size: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 30px;
+}
+
+.username a img{
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+
+.nav_home{
+  color: #00d8ff;
+  font-size: 24px;
+  display: inline-block;
+}
+
+.nav_logo{
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 10px;
+}
