@@ -5,8 +5,7 @@
     "build": "roadhog build",
     "build:dll": "roadhog buildDll",
     "test": "roadhog test",
-    "lint": "eslint --ext .js src test",
-    "precommit": "npm run lint"
+    "lint": "eslint --ext .js src test"
   },
   "dependencies": {
     "antd": "^2.12.5",
