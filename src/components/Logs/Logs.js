@@ -3,7 +3,7 @@ import { connect } from 'dva';
 import { Table, Pagination } from 'antd';
 import { routerRedux } from 'dva/router';
 import styles from './Logs.css';
-import { PAGE_SIZE } from '../../constants';
+import { PAGE_SIZE, SHOW_CHANGER } from '../../constants';
 
 
 function Logs({ dispatch, list: dataSource, loading, total, pageNum: current }) {
@@ -55,14 +55,15 @@ function Logs({ dispatch, list: dataSource, loading, total, pageNum: current }) 
           loading={loading}
           rowKey={record => record.id}
           pagination={false}
-          size="small"
         />
         <Pagination
           className="ant-table-pagination"
           total={total}
           current={current}
+          showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} 条`}
           pageSize={PAGE_SIZE}
           onChange={pageChangeHandler}
+          showSizeChanger={SHOW_CHANGER}
         />
       </div>
     </div>
