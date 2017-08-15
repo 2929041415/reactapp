@@ -17,8 +17,8 @@ function Logs({ dispatch, list: dataSource, loading, total, pageNum: current }) 
   }
 
   function searchHandler(values) {
-    const pageNum = { current };
-    console.log({ ...values, ...pageNum });
+    const pageNum = current;
+    console.log({ ...values, pageNum });
   }
 
   const columns = [
@@ -55,7 +55,9 @@ function Logs({ dispatch, list: dataSource, loading, total, pageNum: current }) 
   return (
     <div className={styles.normal}>
       <div>
-        <SerachForm searchelogs={searchHandler} />
+        <div className={styles.searchstyle}>
+          <SerachForm searchelogs={searchHandler} />
+        </div>
         <Table
           columns={columns}
           dataSource={dataSource}

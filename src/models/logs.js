@@ -16,13 +16,11 @@ export default {
     *query({ payload: queryparam }, { call, put }) {
       const pageNumber = Number(queryparam.pageNum) || 1;
       const data = yield call(logService.query, { pageNum: pageNumber });
-      const datarows = data.rows;
-      const totalcount = data.total;
       yield put({
         type: 'save',
         payload: {
-          data: datarows,
-          total: parseInt(totalcount, 10),
+          data: data.rows,
+          total: parseInt(data.total, 10),
           pageNum: pageNumber,
         },
       });
