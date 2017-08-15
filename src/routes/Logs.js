@@ -15,7 +15,7 @@ function Logs({ location }) {
       <div className={styles.normal}>
         <div className="card-container">
           <Tabs defaultActiveKey="1" type="card" >
-            <TabPane className={styles.logtab} tab="系统登录日志" key="1"><LogsComponents /></TabPane>
+            <TabPane tab="系统登录日志" key="1"><LogsComponents /></TabPane>
             <TabPane tab="系统操作日志" key="2"><SysHandleLogs /></TabPane>
             <TabPane tab="系统异常日志" key="3"><SysErrorLogs /></TabPane>
           </Tabs>

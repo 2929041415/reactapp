@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Icon, Input, Button } from 'antd';
+import { Form, Icon, Input, Button, DatePicker } from 'antd';
 
 const FormItem = Form.Item;
 
@@ -9,13 +9,15 @@ class SearchLogForm extends React.Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    /* 拿到父组件的方法 */
-    const { searchelogs } = this.props;
-    const loginname = this.props.form.getFieldValue('useraccount') === undefined ? null : this.props.form.getFieldValue('useraccount');
-    const loginschool = this.props.form.getFieldValue('loginschool') === undefined ? null : this.props.form.getFieldValue('loginschool');
-    const searchvalue = { loginname, loginschool };
-    /* 调用父组件的searchelogs查询方法 */
-    searchelogs(searchvalue);
+    this.props.form.validateFields((err, fieldsValue) => {
+      const { searchelogs } = this.props;
+      const loginname = fieldsValue.useraccount === undefined ? null : fieldsValue.useraccount;
+      const loginschool = fieldsValue.loginschool === undefined ? null : fieldsValue.loginschool;
+      const logintime = (fieldsValue.logintime === undefined || fieldsValue.logintime === null) ? null : fieldsValue.logintime;
+      const searchvalue = { loginname, loginschool, logintime };
+      /* 调用父组件的searchelogs查询方法 */
+      searchelogs(searchvalue);
+    });
   }
   render() {
     const { getFieldDecorator } = this.props.form;
@@ -28,7 +30,7 @@ class SearchLogForm extends React.Component {
           {getFieldDecorator('loginschool')(<Input prefix={<Icon type="home" style={{ fontSize: 13 }} />} placeholder="学校" />)}
         </FormItem>
         <FormItem>
-          {getFieldDecorator('logintime')(<Input prefix={<Icon type="calendar" style={{ fontSize: 13 }} />} placeholder="登录时间" />)}
+          {getFieldDecorator('logintime')(<DatePicker />)}
         </FormItem>
         <FormItem>
           <Button type="primary" htmlType="submit" size="small" >
