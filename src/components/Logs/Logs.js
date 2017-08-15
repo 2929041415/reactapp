@@ -60,7 +60,7 @@ function Logs({ dispatch, list: dataSource, loading, total, pageNum: current }) 
           className="ant-table-pagination"
           total={total}
           current={current}
-          showTotal={(total, range) => `${range[0]}-${range[1]} of ${total} 条`}
+          showTotal={(total, range) => `${range[0]}-${range[1]} 共 ${total} 条`}
           pageSize={PAGE_SIZE}
           onChange={pageChangeHandler}
           showSizeChanger={SHOW_CHANGER}

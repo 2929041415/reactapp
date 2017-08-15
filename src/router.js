@@ -9,7 +9,7 @@ function registerModel(app, model) {
   }
 }
 
-function RouterConfig({ history, app }) {
+const RouterConfig = function ({ history, app }) {
   const routes = [
     {
       path: '/',
@@ -44,5 +44,6 @@ function RouterConfig({ history, app }) {
 
   return <Router history={history} routes={routes} />;
 }
+
 
 export default RouterConfig;
