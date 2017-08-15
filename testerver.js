@@ -1,4 +1,4 @@
-/* 利用nodejs搭建一个简单的Web服务器 */
+/* 利用nodejs搭建一个测试服务器 */
 
 /* 启动计时器，记录启动服务所花费的时间 */
 console.time('start WebServer need time');
