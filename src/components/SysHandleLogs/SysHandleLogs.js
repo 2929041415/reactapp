@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'dva';
 import { Table, Pagination } from 'antd';
 import { routerRedux } from 'dva/router';
-import styles from './Logs.css';
 import { PAGE_SIZE, SHOW_CHANGER } from '../../constants';
 
 
@@ -17,37 +16,52 @@ function Logs({ dispatch, list: dataSource, loading, total, pageNum: current }) 
 
   const columns = [
     {
-      title: '登录姓名',
-      dataIndex: 'loginname',
-      key: 'loginname',
+      title: '操作帐号',
+      dataIndex: 'handleaccount',
+      key: 'handleaccount',
+    },
+    {
+      title: '操作人',
+      dataIndex: 'handlename',
+      key: 'handlename',
     },
     {
       title: '所属学校',
-      dataIndex: 'loginschool',
-      key: 'loginschool',
+      dataIndex: 'handleschool',
+      key: 'handleschool',
     },
     {
-      title: '登录ip',
-      dataIndex: 'loginip',
-      key: 'loginip',
+      title: '操作ip',
+      dataIndex: 'handleip',
+      key: 'handleip',
     },
     {
-      title: '登录时间',
-      dataIndex: 'createtime',
-      key: 'createtime',
+      title: '操作菜单',
+      dataIndex: 'handlemenu',
+      key: 'handlemenu',
     },
     {
-      title: '登录结果',
-      dataIndex: 'loginresult',
-      key: 'loginresult',
+      title: '操作描述',
+      dataIndex: 'handledescription',
+      key: 'handledescription',
+    },
+    {
+      title: '操作时间',
+      dataIndex: 'handletime',
+      key: 'handletime',
+    },
+    {
+      title: '操作结果',
+      dataIndex: 'handleresult',
+      key: 'handleresult',
       render: (text, record) => (
-        record.loginresult === '1' ? '成功' : '失败'
+        record.handleresult === '0' ? '成功' : '失败'
       ),
     },
   ];
 
   return (
-    <div className={styles.normal}>
+    <div>
       <div>
         <Table
           columns={columns}
@@ -71,9 +85,9 @@ function Logs({ dispatch, list: dataSource, loading, total, pageNum: current }) 
 }
 
 function mapStateToProps(state) {
-  const { list, total, pageNum } = state.logs;
+  const { list, total, pageNum } = state.syshandlelogs;
   return {
-    loading: state.loading.models.logs,
+    loading: state.loading.models.syshandlelogs,
     list,
     total,
     pageNum,

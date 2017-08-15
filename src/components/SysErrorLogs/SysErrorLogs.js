@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'dva';
 import { Table, Pagination } from 'antd';
 import { routerRedux } from 'dva/router';
-import styles from './Logs.css';
 import { PAGE_SIZE, SHOW_CHANGER } from '../../constants';
 
 
@@ -17,37 +16,34 @@ function Logs({ dispatch, list: dataSource, loading, total, pageNum: current }) 
 
   const columns = [
     {
-      title: '登录姓名',
-      dataIndex: 'loginname',
-      key: 'loginname',
+      title: '操作帐号',
+      dataIndex: 'handleaccount',
+      key: 'handleaccount',
     },
     {
-      title: '所属学校',
-      dataIndex: 'loginschool',
-      key: 'loginschool',
+      title: '操作ip',
+      dataIndex: 'handleip',
+      key: 'handleip',
     },
     {
-      title: '登录ip',
-      dataIndex: 'loginip',
-      key: 'loginip',
+      title: '操作菜单',
+      dataIndex: 'menuname',
+      key: 'menuname',
     },
     {
-      title: '登录时间',
+      title: '操作描述',
+      dataIndex: 'description',
+      key: 'description',
+    },
+    {
+      title: '操作时间',
       dataIndex: 'createtime',
       key: 'createtime',
-    },
-    {
-      title: '登录结果',
-      dataIndex: 'loginresult',
-      key: 'loginresult',
-      render: (text, record) => (
-        record.loginresult === '1' ? '成功' : '失败'
-      ),
     },
   ];
 
   return (
-    <div className={styles.normal}>
+    <div>
       <div>
         <Table
           columns={columns}
@@ -71,9 +67,9 @@ function Logs({ dispatch, list: dataSource, loading, total, pageNum: current }) 
 }
 
 function mapStateToProps(state) {
-  const { list, total, pageNum } = state.logs;
+  const { list, total, pageNum } = state.syserrorlogs;
   return {
-    loading: state.loading.models.logs,
+    loading: state.loading.models.syserrorlogs,
     list,
     total,
     pageNum,

@@ -35,7 +35,10 @@ const RouterConfig = function ({ history, app }) {
       name: 'LogsPage',
       getComponent(nextState, cb) {
         require.ensure([], (require) => {
+          /* 注册多个model */
           registerModel(app, require('./models/logs'));
+          registerModel(app, require('./models/syshandlelog'));
+          registerModel(app, require('./models/syserrorlog'));
           cb(null, require('./routes/Logs'));
         });
       },

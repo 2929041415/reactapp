@@ -9,3 +9,21 @@ export function query(params) {
     data: params,
   });
 }
+
+/* 查询操作日志 */
+export function querysyshandle(params) {
+  return request({
+    url: api.findHandleLog,
+    method: 'post',
+    data: params,
+  });
+}
+
+/* 查询操作日志 */
+export function querysyserror(params) {
+  return request({
+    url: api.findErrorLog,
+    method: 'post',
+    data: params,
+  });
+}
