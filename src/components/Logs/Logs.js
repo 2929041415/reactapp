@@ -4,6 +4,7 @@ import { Table, Pagination } from 'antd';
 import { routerRedux } from 'dva/router';
 import styles from './Logs.css';
 import { PAGE_SIZE, SHOW_CHANGER } from '../../constants';
+import SerachForm from './LogsSerach';
 
 
 function Logs({ dispatch, list: dataSource, loading, total, pageNum: current }) {
@@ -13,6 +14,11 @@ function Logs({ dispatch, list: dataSource, loading, total, pageNum: current }) 
       pathname: '/logs',
       query: queryparams,
     }));
+  }
+
+  function searchHandler(values) {
+    const pageNum = { current };
+    console.log({ ...values, ...pageNum });
   }
 
   const columns = [
@@ -49,6 +55,7 @@ function Logs({ dispatch, list: dataSource, loading, total, pageNum: current }) 
   return (
     <div className={styles.normal}>
       <div>
+        <SerachForm searchelogs={searchHandler} />
         <Table
           columns={columns}
           dataSource={dataSource}
