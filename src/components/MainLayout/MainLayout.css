@@ -17,9 +17,9 @@
 
 .logo{
   width: 120px;
-  height: 31px;
+  height: 64px;
   border-radius: 6px;
-  margin: 16px 85px 16px 40px;
+  margin: 0px 85px 0px 40px;
   float: left;
 }
 
@@ -49,11 +49,9 @@
 .nav_home{
   color: #00d8ff;
   font-size: 24px;
-  display: inline-block;
+  display: block;
 }
 
 .nav_logo{
-  vertical-align: middle;
-  display: inline-block;
   margin-right: 10px;
 }

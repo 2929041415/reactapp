@@ -9,13 +9,12 @@ function Header({ location }) {
     <div>
       <div className={styles.logo} >
         <a className={styles.nav_home}>
-          <img className={styles.nav_logo} src={logosrc} width="36" height="36"></img>
-          React
+          <img src={logosrc} width="36" height="60" />
         </a>
       </div>
       <div className={styles.username} >
         <a>
-          <img src={logosrc} width="20" height="20"/>
+          <img src={logosrc} width="20" height="20" />
           Administrator
         </a>
       </div>
